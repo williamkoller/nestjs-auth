@@ -1,4 +1,3 @@
-import { Exclude } from 'class-transformer';
 import {
   IsBoolean,
   IsEmail,
@@ -12,13 +11,13 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   fullName: string;
 
+  @IsString()
   @IsEmail()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   email: string;
 
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
-  @Exclude()
   password: string;
 
   @IsBoolean()

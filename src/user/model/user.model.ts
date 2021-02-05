@@ -3,15 +3,18 @@ import {
   CreateDateColumn,
   Entity,
   ObjectIdColumn,
+  PrimaryColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-import { hashPasswordTransform } from '@/common/lib/bcrypt/bcrypt';
 
 @Unique(['email'])
 @Entity('users')
 export class User {
   @ObjectIdColumn()
+  _id: string;
+
+  @PrimaryColumn()
   id: string;
 
   @Column()
@@ -20,15 +23,15 @@ export class User {
   @Column()
   email: string;
 
-  @Column({ transformer: hashPasswordTransform })
+  @Column()
   password: string;
 
   @Column({ default: true })
-  isActive: boolean;
+  isActive?: boolean;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 }
