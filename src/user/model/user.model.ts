@@ -12,7 +12,7 @@ import { hashPasswordTransform } from '@/common/lib/bcrypt/bcrypt';
 @Entity('users')
 export class User {
   @ObjectIdColumn()
-  _id: string;
+  id: string;
 
   @Column()
   fullName: string;
