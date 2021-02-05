@@ -1,10 +1,13 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { User } from '@/user/model/user.model';
+require('dotenv').config();
 
 export const TypeOrmConfig: TypeOrmModuleOptions = {
   type: 'mongodb',
-  url: process.env.MONGO_DB,
+  url: process.env.MONGO_URI,
+  database: process.env.MONGO_DATABASE,
   synchronize: true,
-  entities: ['src/**/**/*.ts'],
+  entities: [User],
   useUnifiedTopology: true,
-  logger: 'debug',
+  useNewUrlParser: true,
 };
