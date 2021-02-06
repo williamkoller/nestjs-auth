@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateUserRepository } from '@/user/repositories/create-user.repository';
 import { CreateUserDto } from '@/user/dtos/create-user.dto';
-import { User } from '@/user/model/user.model';
+import { User } from '@/models/user.model';
 import { findUserByEmailRepository } from '@/user/repositories/find-user-by-email.repository';
 
 @Injectable()

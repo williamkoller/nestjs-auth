@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { User } from '@/user/model/user.model';
+import { User } from '@/models/user.model';
 import { CreateUserDto } from '@/user/dtos/create-user.dto';
 import { genSaltSync, hashSync } from 'bcrypt';
 

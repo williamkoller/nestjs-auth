@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { User } from '@/user/model/user.model';
+import { User } from '@/models/user.model';
 import { ListUserRepository } from '@/user/repositories/list-user.repository';
 
 @Injectable()

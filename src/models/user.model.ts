@@ -2,8 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ObjectIdColumn,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
@@ -11,10 +10,7 @@ import {
 @Unique(['email'])
 @Entity('users')
 export class User {
-  @ObjectIdColumn()
-  _id: string;
-
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -25,6 +21,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column({ default: true })
+  IsActive: boolean;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

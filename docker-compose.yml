@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres:13.1-alpine
+    container_name: postgres
+    networks:
+      - back
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${TYPEORM_USERNAME}
+      POSTGRES_PASSWORD: ${TYPEORM_PASSWORD}
+      POSTGRES_DB: ${TYPEORM_DATABASE}
+      POSTGRES_HOST: ${TYPEORM_HOST}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - ${TYPEORM_PORT}:${TYPEORM_PORT}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+networks:
+  back:
+volumes:
+  db_data:
